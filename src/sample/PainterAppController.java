@@ -182,8 +182,11 @@ public class PainterAppController {
 
     @FXML
     void drawingAreaMouseDragged(MouseEvent event) {
-        Circle newCircle = new Circle(event.getX(), event.getY(), radius.getRadius(), brushColor);
-        drawingAreaPane.getChildren().add(newCircle);
+        if (event.getX() > 0 && event.getY() > 0){
+            Circle newCircle = new Circle(event.getX(), event.getY(), radius.getRadius(), brushColor);
+            drawingAreaPane.getChildren().add(newCircle);
+        }
+
     }
 
     @FXML
