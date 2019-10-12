@@ -54,8 +54,8 @@
             </TitledPane>
             <GridPane hgap="8.0" prefHeight="136.0" prefWidth="355.0" style="-fx-background-color: white;">
                <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="53.0" minWidth="20.0" prefWidth="20.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="102.0" prefWidth="141.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="53.0" minWidth="20.0" prefWidth="41.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="100.0" prefWidth="109.0" />
                   <ColumnConstraints hgrow="SOMETIMES" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -74,7 +74,7 @@
                   <Slider fx:id="greenSlider" max="255.0" prefHeight="11.0" prefWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Slider fx:id="blueSlider" max="255.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Slider fx:id="alphaSlider" blockIncrement="0.1" max="1.0" value="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="redTextField" prefWidth="50.0" text="0" GridPane.columnIndex="2" />
+                  <TextField fx:id="redTextField" prefWidth="50.0" promptText="0" text="0" GridPane.columnIndex="2" />
                   <TextField fx:id="greenTextField" prefWidth="50.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <TextField fx:id="blueTextField" prefWidth="50.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <TextField fx:id="alphaTextField" prefWidth="50.0" text="1.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />

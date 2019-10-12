@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -16,6 +17,11 @@ import javafx.scene.paint.Paint;
 
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.util.converter.NumberStringConverter;
+
+import java.text.NumberFormat;
 
 public class PainterAppController {
 
@@ -98,7 +104,6 @@ public class PainterAppController {
     @FXML
     private Rectangle colorRectangle;
 
-
     private int red = 0;
     private int green = 0;
     private int blue = 0;
@@ -116,11 +121,21 @@ public class PainterAppController {
         mediumRadioButton.setUserData(PenSize.MEDIUM);
         largeRadioButton.setUserData(PenSize.LARGE);
 
+        redSlider.setValue(red);
+        redTextField.setText(new Integer(red).toString());
+        redTextField.textProperty().bindBidirectional(redSlider.valueProperty(), NumberFormat.getNumberInstance());
 
-        redTextField.textProperty().bind(redSlider.valueProperty().asString("%.0f"));
-        greenTextField.textProperty().bind(greenSlider.valueProperty().asString("%.0f"));
-        blueTextField.textProperty().bind(blueSlider.valueProperty().asString("%.0f"));
-        alphaTextField.textProperty().bind(alphaSlider.valueProperty().asString("%.2f"));
+        greenSlider.setValue(green);
+        greenTextField.setText(new Integer(green).toString());
+        greenTextField.textProperty().bindBidirectional(greenSlider.valueProperty(), NumberFormat.getNumberInstance());
+
+        blueSlider.setValue(blue);
+        blueTextField.setText(new Integer(blue).toString());
+        blueTextField.textProperty().bindBidirectional(blueSlider.valueProperty(), NumberFormat.getNumberInstance());
+
+        alphaSlider.setValue(alpha);
+        alphaTextField.setText(new Double(alpha).toString());
+        alphaTextField.textProperty().bindBidirectional(alphaSlider.valueProperty(), NumberFormat.getNumberInstance());
 
         redSlider.valueProperty().addListener(
                 new ChangeListener<Number>() {
@@ -164,7 +179,6 @@ public class PainterAppController {
         );
     }
 
-
     @FXML
     void clearButtonPressed(ActionEvent event) {
         drawingAreaPane.getChildren().clear();
@@ -186,7 +200,6 @@ public class PainterAppController {
             Circle newCircle = new Circle(event.getX(), event.getY(), radius.getRadius(), brushColor);
             drawingAreaPane.getChildren().add(newCircle);
         }
-
     }
 
     @FXML
@@ -201,25 +214,5 @@ public class PainterAppController {
             drawingAreaPane.getChildren().remove(count - 1);
         }
     }
-
-//    @FXML
-//    void alphaSliderDetected(MouseEvent event) {
-//        brushColor = colorRectangle.getFill();
-//    }
-//
-//    @FXML
-//    void blackSliderDetected(MouseEvent event) {
-//        brushColor = colorRectangle.getFill();
-//    }
-//
-//    @FXML
-//    void greenSliderDetected(MouseEvent event) {
-//        brushColor = colorRectangle.getFill();
-//    }
-//
-//    @FXML
-//    void redSliderDetected(MouseEvent event) {
-//        brushColor = colorRectangle.getFill();
-//    }
 
 }
